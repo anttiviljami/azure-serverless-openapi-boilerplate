@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json.schemastore.org/proxies",
+	"proxies": {
+		"api": {
+			"backendUri": "https://localhost/api/handler",
+			"matchCondition": {
+				"methods": [ "GET" ],
+				"route": "{*path}"
+			},
+			"requestOverrides": {
+				"backend.request.querystring._path": "/{path}"
+			}
+		}
+	}
+}
