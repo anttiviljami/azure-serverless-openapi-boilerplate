@@ -1,0 +1,36 @@
+{
+  "name": "azure-serverless-openapi-boilerplate",
+  "description": "Boilerplate project for a serverless API with automated OpenAPI specification on Azure Functions",
+  "author": "Viljami Kuosmanen <viljami@avoinsorsa.fi>",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "azure",
+    "function",
+    "serverless",
+    "typescript",
+    "openapi",
+    "swagger"
+  ],
+  "engines": {
+    "node": "^10.1.0",
+    "npm": "^6.4.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch-build": "tsc -w",
+    "test": "echo 'no tests specified' && exit 1",
+    "lint": "tslint --format prose --project .",
+    "prettier": "prettier --write src/**"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7",
+		"prettier": "^1.14.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.1.3"
+  }
+}
