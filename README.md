@@ -16,7 +16,7 @@ This project is currently just me figuring out the best ways to do Serverless AP
 - [ ] Continuous deployment using ZIP deployment on Azure
 - [ ] Automated OpenAPI specification
 
-## Terraform deploy
+## Deploy
 
 Requirements:
 
@@ -77,5 +77,13 @@ Check the terraform plan and apply, if everything looks correct
 ```sh
 terraform plan
 terraform apply
+```
+
+## Publish
+
+To publish your function in the deployed Azure function app:
+
+```sh
+func azure functionapp publish $PROJECT_NAME-<stage> --zip
 ```
 

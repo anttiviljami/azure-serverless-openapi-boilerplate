@@ -13,15 +13,18 @@
     "swagger"
   ],
   "engines": {
-    "node": "^10.1.0",
+    "node": "^10.6.0",
     "npm": "^6.4.1"
   },
   "scripts": {
     "build": "tsc",
     "watch-build": "tsc -w",
+    "start": "func start",
     "test": "echo 'no tests specified' && exit 1",
     "lint": "tslint --format prose --project .",
-    "prettier": "prettier --write src/**"
+    "prettier": "prettier --write src/**",
+    "publish:dev": "func azure functionapp publish $PROJECT_NAME-dev --zip",
+    "publish": "npm run publish:dev"
   },
   "dependencies": {
   },

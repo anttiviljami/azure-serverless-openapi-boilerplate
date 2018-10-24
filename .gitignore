@@ -1,6 +1,16 @@
+# env
 .env
-.env.test
+.env.*
+!.env.sample
+!.env.test.sample
 
-# Terraform sensitive files
+# npm
+node_modules
+npm-debug.log*
+
+# terraform
 .terraform/*
 terraform-backend.tf
+
+#
+

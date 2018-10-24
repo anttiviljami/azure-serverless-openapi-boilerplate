@@ -21,8 +21,10 @@ resource "azurerm_function_app" "dev" {
   resource_group_name       = "${data.azurerm_resource_group.main.name}"
   storage_connection_string = "${data.azurerm_storage_account.main.primary_connection_string}"
   app_service_plan_id       = "${azurerm_app_service_plan.dev.id}"
+  version                   = "~2"
 
   app_settings {
+    WEBSITE_NODE_DEFAULT_VERSION = "10.6.0"
     DATABASE_URL = "postgres://${var.database_user_dev}@${azurerm_postgresql_server.dev.name}:${random_id.dev.hex}!@${azurerm_postgresql_server.dev.fqdn}:5432/${var.database_name_dev}?ssl=true"
   }
 }
