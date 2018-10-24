@@ -1,0 +1,6 @@
+.env
+.env.test
+
+# Terraform sensitive files
+.terraform/*
+terraform-backend.tf

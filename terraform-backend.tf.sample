@@ -1,0 +1,7 @@
+terraform {
+  backend "azurerm" {
+    storage_account_name = "<Storage Account Name>"
+    container_name = "<Blob Storage Container Name>"
+    key = "terraform.tfstate"
+  }
+}
