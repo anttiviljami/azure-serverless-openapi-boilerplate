@@ -25,7 +25,7 @@ resource "azurerm_function_app" "dev" {
 
   app_settings {
     WEBSITE_NODE_DEFAULT_VERSION = "10.6.0"
-    DATABASE_URL = "postgres://${var.database_user_dev}@${azurerm_postgresql_server.dev.name}:${random_id.dev.hex}!@${azurerm_postgresql_server.dev.fqdn}:5432/${var.database_name_dev}?ssl=true"
+    DATABASE_URL = "postgres://${var.database_user_dev}@${azurerm_postgresql_server.dev.name}:${random_id.dev.hex}-@${azurerm_postgresql_server.dev.fqdn}:5432/${var.database_name_dev}"
   }
 }
 
@@ -59,7 +59,7 @@ resource "azurerm_postgresql_server" "dev" {
   version = "10.0"
 
   administrator_login = "${var.database_user_dev}"
-  administrator_login_password = "${random_id.dev.hex}!"
+  administrator_login_password = "${random_id.dev.hex}-"
 
   ssl_enforcement = "Enabled"
 }

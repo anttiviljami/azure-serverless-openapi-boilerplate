@@ -6,9 +6,6 @@
 			"matchCondition": {
 				"methods": [ "GET" ],
 				"route": "{*path}"
-			},
-			"requestOverrides": {
-				"backend.request.querystring._path": "/{path}"
 			}
 		}
 	}

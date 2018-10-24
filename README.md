@@ -16,6 +16,23 @@ This project is currently just me figuring out the best ways to do Serverless AP
 - [ ] Continuous deployment using ZIP deployment on Azure
 - [ ] Automated OpenAPI specification
 
+## Quick Start
+
+Requirements:
+- Node.js v10+
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools)
+- Local PostgreSQL (docker-compose file included)
+- [Terraform](https://www.terraform.io/downloads.html)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+```
+source .env.sample # Set up environment variables
+npm install
+# docker-compose up --detach # PostgreSQL listening at port 5432
+# npm run migrate # Set up database schema with knex migrations
+npm run dev # Core Tools Start: http://localhost:9000
+```
+
 ## Deploy
 
 Requirements:
@@ -52,8 +69,9 @@ Then source the file to load the environment variables.
 source .env
 ```
 
-Also, configure the terraform backend in terraform.tf to point to a blob storage container you've configured in your
-storage account:
+If you wish, you can configure the terraform remote backend to a blob storage container.
+
+See `terraform-backend.tf.sample`:
 
 ```terraform
 terraform {
@@ -65,25 +83,17 @@ terraform {
 }
 ```
 
-Log in to your Azure account with Azure CLI and initalise Terraform
+Init Terraform and deploy!
 
 ```sh
-az login
 terraform init
-```
-
-Check the terraform plan and apply, if everything looks correct
-
-```sh
-terraform plan
 terraform apply
 ```
 
 ## Publish
 
-To publish your function in the deployed Azure function app:
-
 ```sh
+npm run build
 func azure functionapp publish $PROJECT_NAME-<stage> --zip
 ```
 
